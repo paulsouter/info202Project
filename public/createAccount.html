@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="ShoppingApp">
+    <head>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/shopping.js"></script>
+        <title>Create Account</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/StyleSheet.css">
+    </head>
+    <body>
+        <h1>Create Account</h1>
+        <div ng-include="'menu.html'" ></div>
+        <form ng-controller="registerCustomer as custCtrl" ng-submit="custCtrl.registerCustomer(customer)">
+            <label>Username:</label>
+            <input type="text" ng-model="customer.username" required name="User Name"><br>
+            <label>First name:</label>
+            <input type="text"ng-model="customer.firstName" required name="First Name"><br>
+            <label>Last Name:</label>
+            <input type="text" ng-model="customer.surname" requiredname="Last Name"><br>
+            <label> Email:</label>
+            <input type="email"ng-model="customer.emailAddress" required name="Email"><br>
+            <label> Address:</label>
+            <input type="text" ng-model="customer.shippingAddress" requiredname="Address"><br>
+            <label> Credit Card:</label>
+            <input type="text"ng-model="customer.creditCardDetails" required name="Credit Card"><br>
+            <label> Password:</label>
+            <input type="password"ng-model="customer.password" required name="Password"><br>
+            <button type="submit">Create Account</button>
+        </form>
+    </body>
+</html>

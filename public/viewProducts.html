@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="ShoppingApp">
+    <head>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/shopping.js"></script>
+        <title>Products</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/StyleSheet.css">
+    </head>
+    <body ng-controller="ProductController as prodCtrl" >
+
+        <h1>Products</h1>
+        <div ng-include="'menu.html'" ></div>
+        <button ng-click="prodCtrl.getProducts()" >All</button>
+        <button ng-click="prodCtrl.selectCategory(cat)" ng-repeat="cat in prodCtrl.categories">{{cat}}</button>
+        <table>
+            <tr>
+                <th>name</th>
+                <th>description</th>
+                <th>product ID</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Available</th>
+                <th></th>
+            </tr>
+            <tbody ng-controller="CartController as cartCtrl">
+                <tr ng-repeat="product in prodCtrl.products">
+                    <td>{{product.name}}</td>
+                    <td>{{product.describe}}</td>
+                    <td>{{product.productId}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.pricelist}}</td>
+                    <td>{{product.quantityInStock}}</td>
+                    <td><button ng-click="cartCtrl.storeProduct(product)">Buy</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
